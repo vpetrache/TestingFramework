@@ -18,7 +18,7 @@ import java.util.regex.Pattern;
  */
 public class ProductDetailsPage {
 
-@FindBy(xpath = "//a[@href='/bath-body?sort=pricehigh']")
+@FindBy(xpath = "//a/span[contains(.,'ngrijire Corp')]")
     private WebElement InapoiButton;
 
 @FindBy(xpath = "//h1[@class='name']")

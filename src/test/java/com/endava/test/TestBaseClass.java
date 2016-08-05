@@ -17,23 +17,35 @@ public class TestBaseClass {
     private static WebDriver driver;
     protected HomePage homePage;
 
-    @BeforeClass
-    public static void setup()
-    {
+    //once per test suite
+//    @BeforeClass
+//    public static void setup()
+//    {
+//        driver = new FirefoxDriver();
+//        driver.manage().window().maximize();
+//        driver.get("http://www.oriflame.ro");
+//    }
+
+
+    //once per test
+    @Before
+    public void initPageObjects(){
         driver = new FirefoxDriver();
         driver.manage().window().maximize();
         driver.get("http://www.oriflame.ro");
-
+        homePage = PageFactory.initElements(driver, HomePage.class);
     }
 
-    @Before
-    public void initPageObjects(){homePage = PageFactory.initElements(driver, HomePage.class);
+
+    @AfterClass
+    public static void teardown(){
+        driver.quit();
     }
 
-//
-//    @AfterClass
-//    public static void teardown(){
-//        driver.quit();
-//    }
+    @After
+    public void tearApart(){
+
+        driver.close();
+    }
 
 }
