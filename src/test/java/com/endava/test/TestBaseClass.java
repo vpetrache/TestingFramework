@@ -30,10 +30,10 @@ public class TestBaseClass {
     public void initPageObjects(){homePage = PageFactory.initElements(driver, HomePage.class);
     }
 
-
-    @AfterClass
-    public static void teardown(){
-        driver.quit();
-    }
+//
+//    @AfterClass
+//    public static void teardown(){
+//        driver.quit();
+//    }
 
 }

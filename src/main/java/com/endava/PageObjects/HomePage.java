@@ -30,10 +30,9 @@ public class HomePage {
     }
 
     public IngrijireCorp accessingIngrijireCorp() {
-
-        inchideButton.click();
-
         WebDriverWait wait = new WebDriverWait(driver, 10);
+        wait.until(ExpectedConditions.visibilityOf(inchideButton));
+        inchideButton.click();
         wait.until(ExpectedConditions.visibilityOf(ingrijireCorp));
         ingrijireCorp.click();
 
@@ -44,8 +43,9 @@ public class HomePage {
 
 
     public PentruElPage accessingPentruEl() {
-        inchideButton.click();
         WebDriverWait wait = new WebDriverWait(driver, 10);
+        wait.until(ExpectedConditions.visibilityOf(inchideButton));
+        inchideButton.click();
         wait.until(ExpectedConditions.visibilityOf(pentruEl));
         pentruEl.click();
         PentruElPage pentruElPage = PageFactory.initElements(driver, PentruElPage.class);

@@ -51,10 +51,10 @@ public class CosPage {
 
     public void IncreaseQuantity(){
 
-        WebDriverWait wait = new WebDriverWait(driver, 10);
         increaseButton.click();
         increaseButton.click();
         labelToClick.click();
+        WebDriverWait wait = new WebDriverWait(driver, 20);
         wait.until(ExpectedConditions.attributeContains(quantity, "aria-valuenow", "3"));
     }
 
